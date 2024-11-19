@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html>
+	<!-- The entrire project is developed from scratch (from idiation to execution and implementation) by Lakhan Raut Radio Jockey at CRS, MGIRI, Wardha -->
+  
+  <head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8"/>
+		<!-- CSS styles integrated here -->
+		<style>
+			* {
+				box-sizing: border-box;
+				padding: 0;	
+				margin: 0;
+				font-family: 'Poppins', sans-serif;
+				font-size: 18px;
+			}
+			body {
+				height:;
+				/*display: flex;*/
+				align-items: center;
+				justify-content: center;
+			}
+			.container {
+				/*width: 500px;*/
+				padding: 30px;
+				border: 1px solid #ffffff;
+				border-radius: 20px;
+				background-color: #264601;
+			}
+
+			h3 {
+				margin-bottom: 10px;
+				font-size: 30px;
+				color: white;
+			}
+
+			h5 {
+				text-align: center;
+				margin-bottom: 40px;
+				font-size: 40px;
+				color: rgb(204, 157, 157);
+			}
+			input {
+				/*width: 100%;*/
+				padding: 5px;
+				margin-bottom: 25px;
+			}
+			textarea {
+				width: 90%;
+				padding: 10px;
+				
+			}
+			select {
+				margin-bottom: 10px;
+			}
+
+			#submit {
+				border: none;
+				background-color: orangered;
+				color: white;
+				width: 200px;
+				margin-top: 10px;
+				border-radius: 5px;
+			}
+			#submit:hover {
+				background-color: #333333;
+			}
+			#success-message {
+            display: none; /* Initially hidden */
+            background-color: rgb(223, 182, 0);
+			color: rgb(255, 255, 255);
+			border: none;
+			width: 200px;
+			margin-top: 10px;
+			border-radius: 5px;
+			animation: pulse 1.5s infinite; /* Apply animation */
+			}
+
+			/* Define the pulse animation */
+			@keyframes pulse {
+			0% {
+				transform: scale(1);
+				opacity: 1;
+			}
+			50% {
+				transform: scale(1.1);
+				opacity: 0.8;
+			}
+			100% {
+				transform: scale(1);
+				opacity: 1;
+			}
+			}
+		</style>
+	</head>
+		
+	<body>
+		<div class="container">
+			<form method="post" action="https://script.google.com/macros/s/AKfycbxTPdE2kPJWujh6hF6FUah_3ZqcuC2bLGv_8Iwx0nuz2xHFr41lI1CKWj17wc2505La/exec" name="M-E_Qsheets">
+				<h5>Radio MGIRI 90.4FM<h5>
+				<h3>Morning Evening Cue- Sheet<h3>
+                
+					<!-- Input Field for Date -->
+				<label style="color: white;" for="date">Select a date: </label>
+				<input type="date" id="date" name="date">
+				<br>
+
+<!--Rupresha commented
+				<label for="rupresha">Rupresha:</label>
+				<select id="rupresha" name="rupresha" onchange="toggleVisibility('rupresha', 'other_rupreshadiv', '')">
+					<option value="निवेदन">निवेदन</option>
+					<option value="RJ सुहास">RJ Suhas</option>
+					<option value="RJ वैशाली">RJ Vaishali</option>
+					<option value="RJ निलकमल">RJ Nilkamal</option>
+					<option value="RJ लखन">RJ Lakhan</option>
+					<option value="">Other</option>
+				</select>
+
+							<div id="other_rupreshadiv" style="display: none;">
+								<label for="other_rupresha">Please specify:</label>
+								<input type="text" id="rupresha" name="other_rupresha">
+							</div>
+-->
+<!-- Dinvishesh-->
+                <label for="Dinvishesh">Dinvishesh:</label>
+                <select id="Dinvishesh" name="Dinvishesh" onchange="toggleVisibility('Dinvishesh', 'other_dinvisheshdiv', '')">
+                    <option value="निवेदन">निवेदन</option>
+                    <option value="RJ सुहास">RJ Suhas</option>
+                    <option value="RJ वैशाली">RJ Vaishali</option>
+                    <option value="RJ निलकमल">RJ NIlkamal</option>
+                    <option value="RJ लखन">RJ lakhan</option> <br>
+					<option value="">Other</option>
+				</select>
+
+							<!-- Hidden Input for "Other" -->
+							<div id="other_dinvisheshdiv" style="display: none;">
+								<label for="other_dinvishesh">Please specify:</label>
+								<input type="text" id="Dinvishesh" name="other_Dinvishesh">
+							</div>
+
+				<label for="Status-Dinvishesh">Status-Dinvishesh:</label>
+                <select id="Status-Dinvishesh" name="Status-Dinvishesh" style="margin-bottom: 20px;">
+                    <option value="OLD">OLD</option>
+                    <option value="FRESH">FRESH</option>
+                    <option value="Repeat">Repeat</option>
+				</select><br>
+
+<!-- Krushi-Sandesh-->
+                <input type="text" name="Krushi-Sandesh" placeholder="Krushi Sandesh"required>
+
+                <select id="Krushisandesh-Nivedan" name="Krushisandesh-Nivedan" onchange="toggleVisibility('Krushisandesh-Nivedan', 'other_Krushisandesh-Nivedandiv', '')">
+                    <option value="निवेदन">निवेदन</option>
+					<option value="आरएस डवरे">आर एस डवरे</option>
+                    <option value="RJ सुहास">RJ Suhas</option>
+                    <option value="RJ वैशाली">RJ Vaishali</option>
+                    <option value="RJ निलकमल">RJ NIlkamal</option>
+                    <option value="RJ लखन">RJ lakhan</option>
+                    <option value="">Other</option>												
+				</select>
+							<!-- Hidden Input for "Other" -->
+							<div id="other_Krushisandesh-Nivedandiv" style="display: none;">
+								<label for="other_dinvishesh">Please specify:</label>
+								<input type="text" id="Krushisandesh-Nivedan" name="other_Krushisandesh-Nivedan">
+							</div>
+
+				<label for="Status-Krushi-Sandesh">Status-Krushi-Sandesh:</label>
+                <select id="Status-Krushi-Sandesh" name="Status-Krushi-Sandesh">
+                    <option value="OLD">OLD</option>
+                    <option value="FRESH">FRESH</option>
+                    <option value="Repeat">Repeat</option>
+				</select><br>
+
+<!--Santamahima-->
+                <input type="text" name="संतमहिमा" placeholder="संतमहिमा"required>
+                <select id="संतमहिमासंतमहिमाnivedan" name="संतमहिमासंतमहिमाnivedan" onchange="toggleVisibility('संतमहिमासंतमहिमाnivedan', 'other_संतमहिमासंतमहिमाnivedandiv', '')">
+                    <option value="निवेदन">निवेदन</option>
+					<option value="शैलेन्द्र भारती">शैलेन्द्र भारती</option>
+                    <option value="देवराव महाराज">देवराव महाराज</option>
+                    <option value="पद्माकर गोवाइकर">पद्माकर गोवाइकर</option>
+                    <option value="RJ सुहास">RJ Suhas</option>
+                    <option value="RJ वैशाली">RJ Vaishali</option>
+                    <option value="RJ निलकमल">RJ NIlkamal</option>
+                    <option value="RJ लखन">RJ lakhan</option>
+                    <option value="">Other</option>
+				</select>
+
+							<!-- Hidden Input for "Other" -->
+							<div id="other_संतमहिमासंतमहिमाnivedandiv" style="display: none;">
+								<label for="संतमहिमासंतमहिमाnivedan">Please specify:</label>
+								<input type="text" id="संतमहिमासंतमहिमाnivedan" name="other_संतमहिमासंतमहिमाnivedan">
+							</div>
+
+
+				<label for="Status-Santmahima">Status-Santmahima:</label>
+                <select id="Status-Santmahima" name="Status-Santmahima">
+                    <option value="OLD">OLD</option>
+                    <option value="FRESH">FRESH</option>
+                    <option value="Repeat">Repeat</option>
+				</select><br>
+
+
+<!--Bhaktirang-->
+                <input type="text" name="भक्तिरंग" placeholder="भक्तिरंग"required>
+                <label for="भक्तिरंगनिवेदन">भक्तिरंग निवेदन:</label>
+                <select id="भक्तिरंगनिवेदन" name="भक्तिरंगनिवेदन" onchange="toggleVisibility('भक्तिरंगनिवेदन', 'other_भक्तिरंगनिवेदनdiv', '')">
+					<option value="निवेदन">निवेदन</option>
+                    <option value="बोरगाव मेघे भजन स्पर्धा">बोरगाव मेघे भजन स्पर्धा</option>
+                    <option value="RJ सुहास">RJ Suhas</option>
+                    <option value="RJ वैशाली">RJ Vaishali</option>
+                    <option value="RJ निलकमल">RJ NIlkamal</option>
+                    <option value="RJ लखन">RJ lakhan</option>
+					<option value="">Other</option>
+				</select>
+							<!-- Hidden Input for "Other" -->
+							<div id="other_भक्तिरंगनिवेदनdiv" style="display: none;">
+								<label for="other_भक्तिरंगनिवेदन">Please specify:</label>
+								<input type="text" id="भक्तिरंगनिवेदन" name="other_भक्तिरंगनिवेदन">
+							</div>
+							
+				<label for="Status-Bhaktirang">Status-Bhaktirang:</label>
+                <select id="Status-Bhaktirang" name="Status-Bhaktirang">
+                    <option value="OLD">OLD</option>
+                    <option value="FRESH">FRESH</option>
+                    <option value="Repeat">Repeat</option>
+				</select>
+				<br>
+
+<!--YuvaWisha-->
+
+				<input type="text" name="युवा विश्व" placeholder="युवा विश्व"required>
+                <select id="युवा_विश्व_निवेदन" name="युवा_विश्व_निवेदन" onchange="toggleVisibility('युवा_विश्व_निवेदन', 'other_युवा_विश्व_निवेदनdiv', '')">
+					<option value="निवेदन">निवेदन</option>
+                    <option value="RJ सुहास">RJ Suhas</option>
+                    <option value="RJ वैशाली">RJ Vaishali</option>
+                    <option value="RJ निलकमल">RJ NIlkamal</option>
+                    <option value="RJ लखन">RJ lakhan</option>
+					<option value="">Other</option>
+				</select>
+							<!-- Hidden Input for "Other" -->
+							<div id="other_युवा_विश्व_निवेदनdiv" style="display: none;">
+								<label for="युवा_विश्व_निवेदन">Please specify:</label>
+								<input type="text" id="युवा_विश्व_निवेदन" name="other_युवा_विश्व_निवेदन">
+							</div>
+
+				<label for="Status-YuvaWishw">Status-YuvaWishw:</label>
+                <select id="Status-YuvaWishw" name="Status-YuvaWishw">
+                    <option value="OLD">OLD</option>
+                    <option value="FRESH">FRESH</option>
+                    <option value="Repeat">Repeat</option>
+				</select>
+				<br>
+
+<!---Gitanjali-->
+				<input type="text" name="Gitanjali" placeholder="Gitanjali Track"required>
+				<label for="Gitanjali_Edited_BY">Gitanjali Edited BY:</label>
+                <select id="Gitanjali_Edited_BY" name="Gitanjali_Edited_BY" onchange="toggleVisibility('Gitanjali_Edited_BY', 'other_Gitanjali_Edited_BYdiv', '')">
+					<option value="Edited_BY">Edited_BY</option>
+                    <option value="RJ सुहास">RJ Suhas</option>
+                    <option value="RJ वैशाली">RJ Vaishali</option>
+                    <option value="RJ निलकमल">RJ NIlkamal</option>
+                    <option value="RJ लखन">RJ lakhan</option>
+					<option value="">Other</option>
+				</select>
+							<!-- Hidden Input for "Other" -->
+							<div id="other_Gitanjali_Edited_BYdiv" style="display: none;">
+								<label for="Gitanjali_Edited_BY">Please specify:</label>
+								<input type="text" id="Gitanjali_Edited_BY" name="other_Gitanjali_Edited_BY">
+							</div>
+
+				<label for="Status-Gitanjali">Status-Gitanjali:</label>
+                <select id="Status-Gitanjali" name="Status-Gitanjali">
+                    <option value="OLD">OLD</option>
+                    <option value="FRESH">FRESH</option>
+                    <option value="Repeat">Repeat</option>
+				</select>
+				<br><br>
+				
+<!--Program 1-->
+				
+				<label for="कार्यक्रम_1">कार्यक्रम 1:</label>
+				<select id="कार्यक्रम_1" name="कार्यक्रम_1" onchange="toggleVisibility('कार्यक्रम_1', 'other_कार्यक्रम_1div', '')">
+					<option value="एमगिरी विशेष कार्यक्रम">एमगिरी विशेष कार्यक्रम</option>
+					<option value="शेतकऱ्याची यशोगाथा">शेतकऱ्याची यशोगाथा</option>
+					<option value="कृषि जागर">कृषि जागर</option>
+					<option value="जिना इसी का नाम है">जिना इसी का नाम है</option>
+					<option value="वर्धा रक्षक">वर्धा रक्षक</option>
+					<option value="स्वामिनी">स्वामिनी</option>
+					<option value="हैलो डॉक्टर">हैलो डॉक्टर</option>
+					<option value="शून्य ते शिखर">शून्य ते शिखर</option>
+					<option value="संत येती घरा">संत येती घरा</option>
+					<option value="विशेष मुलाखत">विशेष मुलाखत</option>
+					<option value="विशेष कार्यक्रम">विशेष कार्यक्रम</option>
+					<option value="किस्से कहनीया">किस्से कहनीया</option>
+					<option value="वतन का राग">वतन का राग</option>
+					<option value="कवि कट्टा">कवि कट्टा</option>
+					<option value="तुकडोजी महाराज जीवणगाथा">तुकडोजी महाराज जीवणगाथा</option>
+					<option value="आयुष्यावर बोलू काही">आयुष्यावर बोलू काही</option>
+					<option value="क-कायद्याचा">क-कायद्याचा</option>
+					<option value="बालविहार">बालविहार</option>
+					<option value="भजन जनजागृती कार्यक्रम">भजन जनजागृती कार्यक्रम</option>
+					<option value="माझ गाव माझ शिवार">माझ गाव माझ शिवार</option>
+					<option value="आम्ही कलाकार">आम्ही कलाकार</option>
+					<option value="विचारधारा">विचारधारा</option>
+					<option value="">Other</option>
+				</select>
+							<!-- Hidden Input for "Other" -->
+							<div id="other_कार्यक्रम_1div" style="display: none;">
+								<label for="कार्यक्रम_1">Please specify:</label>
+								<input type="text" id="कार्यक्रम_1" name="other_कार्यक्रम_1">
+							</div>
+
+				<input type="text" name="कार्यक्रम 1 विवरण" placeholder="कार्यक्रम 1 विवरण"required>
+				<select id="कार्यक्रम_1_Nivedan" name="कार्यक्रम_1_Nivedan" onchange="toggleVisibility('कार्यक्रम_1_Nivedan', 'other_कार्यक्रम_1_Nivedandiv', '')">
+					<option value="निवेदन">निवेदन</option>
+                    <option value="RJ सुहास">RJ Suhas</option>
+                    <option value="RJ वैशाली">RJ Vaishali</option>
+                    <option value="RJ निलकमल">RJ NIlkamal</option>
+                    <option value="RJ लखन">RJ lakhan</option>
+                    <option value="">Other</option>
+				</select>
+							<!-- Hidden Input for "Other" -->
+							<div id="other_कार्यक्रम_1_Nivedandiv" style="display: none;">
+								<label for="कार्यक्रम_1_Nivedan">Please specify:</label>
+								<input type="text" id="कार्यक्रम_1_Nivedan" name="other_कार्यक्रम_1_Nivedan">
+							</div>
+				
+				<label for="Status-Karyakram 1">Status-Karyakram 1:</label>
+                <select id="Status-Karyakram 1" name="Status-Karyakram 1">
+                    <option value="OLD">OLD</option>
+                    <option value="FRESH">FRESH</option>
+                    <option value="Repeat">Repeat</option>
+				</select>
+				<br><br>
+
+<!--Program 2-->
+
+<label for="कार्यक्रम_2">कार्यक्रम 2:</label>
+				<select id="कार्यक्रम_2" name="कार्यक्रम_2" onchange="toggleVisibility('कार्यक्रम_2', 'other_कार्यक्रम_2div', '')">
+					<option value="एमगिरी विशेष कार्यक्रम">एमगिरी विशेष कार्यक्रम</option>
+					<option value="शेतकऱ्याची यशोगाथा">शेतकऱ्याची यशोगाथा</option>
+					<option value="कृषि जागर">कृषि जागर</option>
+					<option value="जिना इसी का नाम है">जिना इसी का नाम है</option>
+					<option value="वर्धा रक्षक">वर्धा रक्षक</option>
+					<option value="स्वामिनी">स्वामिनी</option>
+					<option value="हैलो डॉक्टर">हैलो डॉक्टर</option>
+					<option value="शून्य ते शिखर">शून्य ते शिखर</option>
+					<option value="संत येती घरा">संत येती घरा</option>
+					<option value="विशेष मुलाखत">विशेष मुलाखत</option>
+					<option value="विशेष कार्यक्रम">विशेष कार्यक्रम</option>
+					<option value="किस्से कहनीया">किस्से कहनीया</option>
+					<option value="वतन का राग">वतन का राग</option>
+					<option value="कवि कट्टा">कवि कट्टा</option>
+					<option value="तुकडोजी महाराज जीवणगाथा">तुकडोजी महाराज जीवणगाथा</option>
+					<option value="आयुष्यावर बोलू काही">आयुष्यावर बोलू काही</option>
+					<option value="क-कायद्याचा">क-कायद्याचा</option>
+					<option value="बालविहार">बालविहार</option>
+					<option value="भजन जनजागृती कार्यक्रम">भजन जनजागृती कार्यक्रम</option>
+					<option value="माझ गाव माझ शिवार">माझ गाव माझ शिवार</option>
+					<option value="आम्ही कलाकार">आम्ही कलाकार</option>
+					<option value="विचारधारा">विचारधारा</option>
+					<option value="">Other</option>
+				</select>
+							<!-- Hidden Input for "Other" -->
+							<div id="other_कार्यक्रम_2div" style="display: none;">
+								<label for="कार्यक्रम_2">Please specify:</label>
+								<input type="text" id="कार्यक्रम_2" name="other_कार्यक्रम_2">
+							</div>
+				<input type="text" name="कार्यक्रम 2 विवरण" placeholder="कार्यक्रम 2 विवरण"required>
+				<select id="कार्यक्रम_2_Nivedan" name="कार्यक्रम_2_Nivedan" onchange="toggleVisibility('कार्यक्रम_2_Nivedan', 'other_कार्यक्रम_2_Nivedandiv', '')">
+					<option value="निवेदन">निवेदन</option>
+                    <option value="RJ सुहास">RJ Suhas</option>
+                    <option value="RJ वैशाली">RJ Vaishali</option>
+                    <option value="RJ निलकमल">RJ NIlkamal</option>
+                    <option value="RJ लखन">RJ lakhan</option>
+                    <option value="">Other</option>
+				</select>
+							<!-- Hidden Input for "Other" -->
+							<div id="other_कार्यक्रम_2_Nivedandiv" style="display: none;">
+								<label for="कार्यक्रम_2_Nivedan">Please specify:</label>
+								<input type="text" id="कार्यक्रम_2_Nivedan" name="other_कार्यक्रम_2_Nivedan">
+							</div>
+				<label for="Status-Karyakram 2">Status-Karyakram 2:</label>
+                <select id="Status-Karyakram 2" name="Status-Karyakram 2">
+                    <option value="OLD">OLD</option>
+                    <option value="FRESH">FRESH</option>
+                    <option value="Repeat">Repeat</option>
+				</select>
+				<br><br>			
+
+
+<!--Bahurangi-->
+				<input type="text" name="बहुरंगी" placeholder="बहुरंगी"required>
+				<label for="Bahurangi_Edited_BY">Bahurangi Edited by:</label>
+                <select id="Bahurangi_Edited_BY" name="Bahurangi_Edited_BY" onchange="toggleVisibility('Bahurangi_Edited_BY', 'other_Bahurangi_Edited_BY_Div', '')">
+					<option value="Edited_by">Edited_by</option>
+                    <option value="RJ सुहास">RJ Suhas</option>
+                    <option value="RJ वैशाली">RJ Vaishali</option>
+                    <option value="RJ निलकमल">RJ NIlkamal</option>
+                    <option value="RJ लखन">RJ lakhan</option>
+					<option value="">Other</option>
+				</select>
+				
+				<!-- Hidden Input for "Other" -->
+							<div id="other_Bahurangi_Edited_BY_Div" style="display: none;">
+								<label for="Bahurangi_Edited_BY">Please specify:</label>
+								<input type="text" id="Bahurangi_Edited_BY" name="other_Bahurangi_Edited_BY">
+							</div>
+								
+				<label for="Status-Bahurangi">Status-Bahurangi:</label>
+                <select id="Status-Bahurangi" name="Status-Bahurangi">
+                    <option value="OLD">OLD</option>
+                    <option value="FRESH">FRESH</option>
+                    <option value="Repeat">Repeat</option>
+				</select><br>
+				
+				<textarea name="Advt Details" rows="2" placeholder="Advertisemt Details seprated by comma"></textarea>
+				<br>
+				<br>
+				<textarea name="Remarks" rows="1" placeholder="Remarks"></textarea>
+				<input type="submit" value="Generate" id="submit"> <div id="success-message">Qsheet generated please print it</div>         		
+			
+				
+				<div id="success-message">Qsheet generated, please print it</div> <!-- Success message -->			
+				
+				</form>
+				<div id="success-message">Form Submitted</div> 
+            <br>                                                                                         
+			<button type="button" onclick="window.open('https://drive.google.com/drive/folders/1OnEikjUwmn34YWTHGXmnudV7WHu5A338','_')">View or Print Qsheet </button>
+			<br>
+			<br>
+			<button type="button" onclick="window.open('https://docs.google.com/spreadsheets/d/1cD087-rCPfEd2R1fdhy6UlYEOJ-HzodDIgGfKtrcCTg/edit?usp=sharing','_')">View Qsheet Data</button>
+			<br><br>
+			<button type="button" onclick="window.open('https://docs.google.com/spreadsheets/d/16zqAJU8A7F3YgSe7tKpZsV8VPt7Pn1euYN7qvPjERjo/edit?usp=sharing', '_')">View Aftenroon Q sheet Data</button>
+			
+			<h2 style="text-align: center; font-style: italic; color: rgb(167, 161, 161);">Developed by Mahatma Gandhi Institute for Rural Industrialization</h2>
+			<script>
+			/**
+			* Function to toggle the visibility of a related input field based on dropdown selection.
+			* @param {string} dropdownId - The ID of the dropdown element.
+			* @param {string} targetDivId - The ID of the div to show/hide.
+			* @param {string} toggleValue - The value that triggers the div visibility.
+			*/
+			function toggleVisibility(dropdownId, targetDivId, toggleValue) {
+				// Get the value of the selected option
+				const dropdownValue = document.getElementById(dropdownId).value;
+
+				const targetDiv = document.getElementById(targetDivId);
+				
+				// Toggle visibility based on the selected value
+				if (dropdownValue === toggleValue) {
+					targetDiv.style.display = "block";
+				} else {
+					targetDiv.style.display = "none";
+				}
+
+				if (dropdownValue === toggleValue) {
+					dropdownId.style.display = "none";
+				} else {
+					dropdownId.style.display = "block";
+				}
+			}
+			</script>
+			</div> 
+
+		<!-- JavaScript code integrated here -->
+		<script>
+			const scriptURL = 'https://script.google.com/macros/s/AKfycbxTPdE2kPJWujh6hF6FUah_3ZqcuC2bLGv_8Iwx0nuz2xHFr41lI1CKWj17wc2505La/exec';
+			const form = document.forms['M-E_Qsheets'];
+			const successMessage = document.getElementById('success-message');
+
+
+		form.addEventListener('submit', e => {
+        e.preventDefault();  // Prevent default form submission
+        
+        // Show the loading message
+        successMessage.style.display = 'block';  
+        successMessage.innerText = 'Generating...'; // Change to loading message
+        
+        fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+            .then(response => {
+                if (response.ok) {
+                    // Show success message
+                    successMessage.innerText = 'Qsheet generated, please print it';
+                    form.reset();  // Optionally reset the form fields
+                } else {
+                    // Show error if the form submission fails
+                    successMessage.innerText = 'Failed to submit the form. Please try again.';
+                }
+                // Hide message after 5 seconds
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 6000);
+            })
+            .catch(error => {
+                successMessage.innerText = 'Error! Please try again.';
+                console.error('Error!', error.message);
+                // Hide message after 5 seconds
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 6000);
+            });
+    });
+</script>
+	</body>
+          	<!-- The entrire project is developed from scratch (from idiation to execution and implementation) by Lakhan Raut Radio Jockey at CRS, MGIRI, Wardha -->
+</html>
