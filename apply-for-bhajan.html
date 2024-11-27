@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8"/>
+		<!-- CSS styles integrated here -->
+		<style>
+			* {
+				box-sizing: border-box;
+				padding: 0;	
+				margin: 0;
+				font-family: 'Poppins', sans-serif;
+				font-size: 18px;
+			}
+			body {
+				height:;
+				/*display: flex;*/
+				align-items: center;
+				justify-content: center;
+			}
+			.container {
+				/*width: 500px;*/
+				padding: 30px;
+				border: 1px solid #ffffff;
+				border-radius: 20px;
+				background-color: #003438;
+			}
+
+			h3 {
+				margin-bottom: 10px;
+				font-size: 30px;
+				color: white;
+			}
+
+			h5 {
+				text-align: center;
+				margin-bottom: 40px;
+				font-size: 40px;
+				color: rgb(204, 157, 157);
+			}
+			input {
+				/*width: 75%;*/
+				padding: 5px;
+				margin-bottom: 25px;
+			}
+			textarea {
+				width: 100%;
+				
+				
+			}
+			select {
+				margin-bottom: 10px;
+
+			}
+			#submit {
+				border: none;
+				background-color: orangered;
+				color: white;
+				width: 200px;
+				margin-top: 10px;
+				border-radius: 5px;
+			}
+			#submit:hover {
+				background-color: #333333;
+			}
+			#success-message {
+            display: none; /* Initially hidden */
+            background-color: rgb(223, 182, 0);
+			color: rgb(255, 255, 255);
+			border: none;
+			width: 200px;
+			margin-top: 10px;
+			border-radius: 5px;
+			animation: pulse 1.5s infinite; /* Apply animation */
+			}
+			pr	{
+				color: white;
+			}
+			/* Define the pulse animation */
+			@keyframes pulse {
+			0% {
+				transform: scale(1);
+				opacity: 1;
+			}
+			50% {
+				transform: scale(1.1);
+				opacity: 0.8;
+			}
+			100% {
+				transform: scale(1);
+				opacity: 1;
+			}
+			}
+		</style>
+	</head>
+		
+	<body>
+		<div class="container">
+<form method="post" action="https://script.google.com/macros/s/AKfycbz5pOatt6xdl-RI-LCYnSS1NYsxSOTBCobhMCSadERHc8YleN5hOQxQfko6sukH0AJ4/exechttps://script.google.com/macros/s/AKfycbwP87S93U-1cB9GS2-bwW05DR9uJdc5GjLJ1m43oOm2jlAfTQoRw73v1MP-i8pbJ9Ue/exech5" name="Bhajan_ Application">				
+
+	<h5>Radio MGIRI 90.4FM<h5>
+
+		<h3>भजन सादरिकरण के लिए आवेदन पत्र<h3></b>
+                
+			<!-- Input Field for Date -->
+				<label style="color: white;" for="date">Select a date: </label>
+				<input type="date" id="date" name="date">
+				<br>
+
+<input type="text" name="applicant_Name" placeholder="भजन मंडली के अध्यक्ष का नाम"required>
+
+<input type="text" name="manadal_Name" placeholder="भजन मंडली का नाम"required>
+
+<input type="text" name="City" placeholder="गाव / शहर का नाम"required>
+
+<input type="text" name="Tahasil" placeholder="तहसिल का नाम" required>
+
+<input type="text" name="district" placeholder="जिल्हा का नाम"required>
+<br>
+
+<input type="email" name="Email" placeholder="ईमेल id जिसपर आवेदन पत्र प्राप्त होगा"required>
+
+<input type="number" name="phone" placeholder="मोबाईल क्र."required>
+
+<br>
+<br>
+<br>
+<textarea name= "member1" rows="2" placeholder=" 1 सादरीकरण करने वाले सदस्य का नाम"required></textarea>
+<textarea name="member2" rows="2" placeholder=" 2 सादरीकरण करने वाले सदस्य का नाम"required></textarea>
+<textarea name="member3" rows="2" placeholder=" 3 सादरीकरण करने वाले सदस्य का नाम"required></textarea>
+<textarea name="member4" rows="2" placeholder=" 4 सादरीकरण करने वाले सदस्य का नाम"required></textarea>
+<textarea name= "member5" rows="2" placeholder=" 5 सादरीकरण करने वाले सदस्य का नाम"required></textarea>
+<textarea name="member6" rows="2" placeholder=" 6 सादरीकरण करने वाले सदस्य का नाम"required></textarea>
+<textarea name="member7" rows="2" placeholder=" 7 सादरीकरण करने वाले सदस्य का नाम"></textarea>
+<textarea name="member8" rows="2" placeholder=" 8 सादरीकरण करने वाले सदस्य का नाम"></textarea>
+<textarea name="member9" rows="2" placeholder=" 9 सादरीकरण करने वाले सदस्य का नाम"></textarea>
+<textarea name="member10" rows="2" placeholder=" 10 सादरीकरण करने वाले सदस्य का नाम"></textarea>
+
+<label>
+	<input type="checkbox" name="agreement" required>
+	भजन मंडली की जानकारी को सत्यापित करें
+  </label>
+  <br>
+  
+<input type="submit" value="Get Application" id="submit"> <div id="success-message">Application generated please print , sign and submit it</div>         		
+			
+				
+				<div id="success-message">Application Sent on Mail, please print, sign and submitt it</div> <!-- Success message -->			
+				
+				</form>
+				<div id="success-message">Application Sent on Email</div> 
+            <br>                                                                                         
+			<button type="button" onclick="window.open('https://docs.google.com/spreadsheets/d/1TstaCX-Ty-iC50FY9Yj8y6S477hRXs3YaLDOi6ewuy4','_')">View Application For print </button>
+			<br>
+			<br>
+
+			
+
+<pr>भजन सदारिकरण के लिए आवेदन प्रक्रिया:<br><br>
+
+	भजन का वीडियो भेजें: <br>
+	भजन सदारिकरण करने हेतु आवेदन पत्र जमा करने से पहले या बाद में, <br> भजन मंडली को रेडियो एमगिरी के व्हाट्सएप नंबर 9561558899 पर भजन का वीडियो भेजना होगा।
+	<br><br>
+	वीडियो का मूल्यांकन:<br>
+	रेडियो एमगिरी द्वारा आपके भेजे गए भजन के वीडियो का मूल्यांकन किया जाएगा।<br>
+	<br>
+	आमंत्रण:<br>
+	यदि आपका भजन रेडियो पर प्रसारण योग्य होता है, तो आपको आवेदन स्वीकृत होने के बाद आपके भजन मंडली को भजन सदारिकरण करने हेतु आमंत्रित किया जा सकता है।
+	<br><br>
+	स्वीकृति/अस्वीकृति:<br>
+	आपके भजन को स्वीकृत या अस्वीकृत करने का पूर्ण अधिकार रेडियो एमगिरी आरक्षित रखता है।<br><br>
+	
+	आवेदन पत्र:<br>
+	कृपया यहा जानकारी भर के आप आवेदन पत्र ईमेल पर पा सकते है<br>
+	 जानकारी भरकर दिए गए ईमेल पर आपको आवेदन पत्र प्राप्त होगा
+	 <br><br>
+	प्रिंट:<br>
+	A4 साइज़ के कागज पर आवेदन पत्र का प्रिंट निकालें।<br><br>
+	
+	जमा करें<br>
+	आवेदन पत्र निदेशक कार्यालय एमगिरी में जमा करें।<br><br>
+	<br>
+	महत्वपूर्ण:<br><br>
+	
+	आवेदन स्वीकृत होने के बाद ही भजन सदारिकरण की तारीखें रेडियो एमगिरी द्वारा फोन पर बताई जाएंगी।<br><br>
+	सादरिकरण को आते समय कृपया मेल पर प्राप्त करारनामा 100 रुपये के स्टैम्प पेपर पर प्रिन्ट कर हस्ताक्षर कर सादरिकरण हेतु दिए गए तारीख पर करारनामा साथ लेकर आए। 
+	<br><br>
+	भजन सदारिकरण के बाद, भजन कार्यक्रम का प्रसारण होने पर रेडियो एमगिरी द्वारा एक प्रशस्तिपत्र दिया जाएगा।<br><br>
+	प्रशस्तिपत्र में सादरकर्ता सभी सदस्यों के नाम, भजन मंडली का नाम और सदारिकरण व प्रसारण तिथि शामिल होगी।<br>
+	<br>
+	भजन को स्वीकृत या अस्वीकृत करने, प्रशस्तिपत्र देने या न देने का संपूर्ण अधिकार रेडियो एमगिरी आरक्षित रखता है।<br><br><br><br>
+</pr>
+		<h2 style="text-align: center; font-style: italic; color: rgb(167, 161, 161);">Developed by Mahatma Gandhi Institute for Rural Industrialization</h2>
+		</div> 
+
+		<!-- JavaScript code integrated here -->
+		<script>
+			const scriptURL = 'https://script.google.com/macros/s/AKfycbwP87S93U-1cB9GS2-bwW05DR9uJdc5GjLJ1m43oOm2jlAfTQoRw73v1MP-i8pbJ9Ue/exec';
+			const form = document.forms['Bhajan_ Application'];
+			const successMessage = document.getElementById('success-message');
+
+
+		form.addEventListener('submit', e => {
+        e.preventDefault();  // Prevent default form submission
+        
+        // Show the loading message
+        successMessage.style.display = 'block';  
+        successMessage.innerText = 'Generating and sending you a Email...'; // Change to loading message
+        
+        fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+            .then(response => {
+                if (response.ok) {
+                    // Show success message
+                    successMessage.innerText = 'Application Sent on Email, please print, sign and sumbmit it';
+                    form.reset();  // Optionally reset the form fields
+                } else {
+                    // Show error if the form submission fails
+                    successMessage.innerText = 'Failed to submit the form. Please try again.';
+                }
+                // Hide message after 5 seconds
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 6000);
+            })
+            .catch(error => {
+                successMessage.innerText = 'Error! Please try again.';
+                console.error('Error!', error.message);
+                // Hide message after 5 seconds
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 6000);
+            });
+    });
+</script>
+
+
+	</body>
+</html>
