@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio MGIRI ERP</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #444;
+        }
+
+        .subheading {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            color: #666;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            padding: 20px;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 1rem;
+            color: #777;
+        }
+
+        .footer {
+            margin-top: 50px;
+            font-size: 0.9rem;
+            color: #888;
+            text-align: center;
+        }
+
+        .footer span {
+            color: #444;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .subheading {
+                font-size: 1rem;
+            }
+
+            .card {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Radio MGIRI ERP Portal</h1>
+    <p class="subheading">Streamlining office management with ease and efficiency</p>
+
+    <div class="container">
+        <div class="card" onclick="redirect('https://mgiriradio.github.io/office/Qsheet.html')">
+            <h3>Morning/Evening Qsheet</h3>
+            <p>Manage and access your daily Qsheets</p>
+        </div>
+        <div class="card" onclick="redirect('https://mgiriradio.github.io/office/Aftenroon.html')">
+            <h3>Afternoon Qsheet</h3>
+            <p>Organize your afternoon schedules</p>
+        </div>
+        <div class="card" onclick="redirect('https://mgiriradio.github.io/office/Quotation.html')">
+            <h3>Quotations</h3>
+            <p>Generate and manage cost quotations</p>
+        </div>
+        <div class="card" onclick="redirect('https://mgiriradio.github.io/office/Recording.html')">
+            <h3>Recording Scheduler</h3>
+            <p>Plan and track your recording sessions</p>
+        </div>
+        <div class="card" onclick="redirect('https://mgiriradio.github.io/office/Visitors Entry.html')">
+            <h3>Visitors Entry</h3>
+            <p>Log and manage visitor details</p>
+        </div>
+        <div class="card" onclick="redirect('https://mgiriradio.github.io/office/apply-training.html')">
+            <h3>Training Application</h3>
+            <p>Submit and track training applications</p>
+        </div>
+        <div class="card" onclick="redirect('https://mgiriradio.github.io/office/apply-for-bhajan.html')">
+            <h3>Bhajan Application</h3>
+            <p>Apply for and manage Bhajan applications</p>
+        </div>
+        <div class="card" onclick="redirect('https://mgiriradio.github.io/office/Program-ID.html')">
+            <h3>Assign Program ID</h3>
+            <p>Assign unique IDs for programs</p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        Developed by <span>Mahatma Gandhi Institute for Rural Industrialization</span>
+    </footer>
+
+    <script>
+        function redirect(url) {
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>
