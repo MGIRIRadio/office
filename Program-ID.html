@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assign Unique IDs for Programs</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #264601;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        label {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        input, textarea, select, button {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #264601;
+            box-shadow: 0 0 4px rgba(38, 70, 1, 0.3);
+        }
+
+        button {
+            background-color: #264601;
+            color: #ffffff;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #1b3900;
+        }
+
+        .success-message {
+            background-color: #28a745;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 8px;
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .link-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .link-buttons button {
+            background-color: #007bff;
+        }
+
+        .link-buttons button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Radio MGIRI 90.4FM</h1>
+        <h2>Assign Unique ID for Program</h2>
+        <form method="post" action="https://script.google.com/macros/s/AKfycbzcRxyDZqMwhATM0_8FV2ibARx_eId2s5jlAPM1nfG9Z1kCGJ28KW1ieddK-oNlav69/exec" name="Program-ID">
+            <label for="DateofMaking">Date of Making:</label>
+            <input type="date" name="DateofMaking" placeholder="Date of Making" required>
+            
+            <label for="Program Name">Program Name:</label>
+            <input type="text" name="Program_Name" placeholder="Program Name" required>
+            
+            <label for="Program_By">Program By:</label>
+            <select id="Program_By" name="Program_By" onchange="toggleVisibility('Program_By', 'other_Program_Bydiv', '')">
+                <option value="Program_By">Program By</option>
+                <option value="RJ सुहास">RJ Suhas</option>
+                <option value="RJ वैशाली">RJ Vaishali</option>
+                <option value="RJ निलकमल">RJ NIlkamal</option>
+                <option value="RJ लखन">RJ lakhan</option> <br>
+                <option value="">Other</option>
+            </select>
+    
+                        <!-- Hidden Input for "Other" -->
+                        <div id="other_Program_Bydiv" style="display: none;">
+                            <label for="other_Program_By">Please specify:</label>
+                            <input type="text" id="other_Program_By" name="other_Program_By">
+                        </div>
+    
+                        <label for="Category">Category:</label>
+                        <select id="Category" name="Category" onchange="toggleVisibility('Category', 'Categorydiv', '')">
+                            <option value="जाहिरात">जाहिरात</option>
+                            <option value="जिंगल्स">जिंगल्स</option>
+                            <option value="कैपसूल्स">कैपसूल्स</option>
+                            <option value="एमगिरी विशेष कार्यक्रम">एमगिरी विशेष कार्यक्रम</option>
+                            <option value="शेतकऱ्याची यशोगाथा">शेतकऱ्याची यशोगाथा</option>
+                            <option value="कृषि जागर">कृषि जागर</option>
+                            <option value="जिना इसी का नाम है">जिना इसी का नाम है</option>
+                            <option value="वर्धा रक्षक">वर्धा रक्षक</option>
+                            <option value="स्वामिनी">स्वामिनी</option>
+                            <option value="हैलो डॉक्टर">हैलो डॉक्टर</option>
+                            <option value="शून्य ते शिखर">शून्य ते शिखर</option>
+                            <option value="संत येती घरा">संत येती घरा</option>
+                            <option value="विशेष मुलाखत">विशेष मुलाखत</option>
+                            <option value="विशेष कार्यक्रम">विशेष कार्यक्रम</option>
+                            <option value="किस्से कहनीया">किस्से कहनीया</option>
+                            <option value="वतन का राग">वतन का राग</option>
+                            <option value="कवि कट्टा">कवि कट्टा</option>
+                            <option value="तुकडोजी महाराज जीवणगाथा">तुकडोजी महाराज जीवणगाथा</option>
+                            <option value="आयुष्यावर बोलू काही">आयुष्यावर बोलू काही</option>
+                            <option value="क-कायद्याचा">क-कायद्याचा</option>
+                            <option value="बालविहार">बालविहार</option>
+                            <option value="भजन जनजागृती कार्यक्रम">भजन जनजागृती कार्यक्रम</option>
+                            <option value="माझ गाव माझ शिवार">माझ गाव माझ शिवार</option>
+                            <option value="आम्ही कलाकार">आम्ही कलाकार</option>
+                            <option value="Gitanjali">विचारधारा</option>
+                            <option value="Krushi_sandesh">विचारधारा</option>
+                            <option value="विचारधारा">विचारधारा</option>
+                            <option value="संतमहिमा">संतमहिमा</option>
+                            <option value="दिनविशेष">दिनविशेष</option>
+                            <option value="रूपरेषा">रूपरेषा</option>
+                            <option value="बहुरंगी">बहुरंगी</option>
+                            <option value="गीत नए जमाने के">गीत नए जमाने के</option>
+    
+    
+                            <option value="">Other</option>
+                        </select>
+                                    <!-- Hidden Input for "Other" -->
+                                    <div id="Categorydiv" style="display: none;">
+                                        <label for="Category">Please specify:</label>
+                                        <input type="text" id="Category" name="other_Category">
+                                    </div>
+    
+                         <label for="Duration">Duration in seconds:</label>
+                         <input type="number" name="Duration" placeholder="Duration in sec" required>
+                         <textarea name="Remarks" rows="1" placeholder="Remarks"></textarea>
+                                  
+      
+            <input type="submit" value="Generate" id="submit"> 
+            <div class="success-message" id="success-message">Unique Program ID Assigned, Please Review it</div>
+            <button type="button" onclick="window.open('https://docs.google.com/spreadsheets/d/1gO0VoTPLXcLmGfGLdg1Atdv2f56l80Ze9YzWBQSP3cs/edit?usp=sharing','_blank')">View Assigned IDs</button>
+        </form>
+    </div>
+
+    <script>
+        function toggleVisibility(dropdownId, targetDivId, toggleValue) {
+            const dropdownValue = document.getElementById(dropdownId).value;
+            const targetDiv = document.getElementById(targetDivId);
+            targetDiv.style.display = dropdownValue === toggleValue ? "block" : "none";
+        }
+
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzcRxyDZqMwhATM0_8FV2ibARx_eId2s5jlAPM1nfG9Z1kCGJ28KW1ieddK-oNlav69/exec';
+        const form = document.forms['Program-ID'];
+        const successMessage = document.getElementById('success-message');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();  // Prevent default form submission
+            
+            // Show the loading message
+            successMessage.style.display = 'block';  
+            successMessage.innerText = 'Generating...'; // Change to loading message
+            
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => {
+                    if (response.ok) {
+                        // Show success message
+                        successMessage.innerText = 'Id Assingned';
+                        form.reset();  // Optionally reset the form fields
+                    } else {
+                        // Show error if the form submission fails
+                        successMessage.innerText = 'Failed to submit the form. Please try again.';
+                    }
+                    // Hide message after 6 seconds
+                    setTimeout(() => {
+                        successMessage.style.display = 'none';
+                    }, 6000);
+                })
+                .catch(error => {
+                    successMessage.innerText = 'Error! Please try again.';
+                    console.error('Error!', error.message);
+                    // Hide message after 6 seconds
+                    setTimeout(() => {
+                        successMessage.style.display = 'none';
+                    }, 6000);
+                });
+        });
+    </script>
+</body>
+</html>
