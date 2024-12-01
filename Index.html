@@ -1,79 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<!--This code is written by Lakhan Raut, Radio MGIRI 90.4 fm-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Radio MGIRI Ofiice</title>
+    <title>Radio MGIRI ERP</title>
     <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
             padding: 20px;
         }
-        h4 {
-            color: #333;
-        }
-        .container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
-        .box {
-            background-color: #4CAF50;
-            color: white;
-            padding: 30px;
-            width: 200px;
-            text-align: center;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: transform 0.3s, background-color 0.3s;
-        }
-        h3 
-        {
-				margin-bottom: 10px;
-				font-size: 30px;
-				color: rgb(160, 2, 2);
-			}
 
-			h5 {
-				text-align: center;
-				margin-bottom: 40px;
-				font-size: 40px;
-				color: rgb(172, 0, 0);
-			}
-        .box:hover {
-            background-color: #45a049;
-            transform: scale(1.3);
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #444;
+        }
+
+        .subheading {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            color: #666;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            padding: 20px;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 1rem;
+            color: #777;
+        }
+
+        .footer {
+            margin-top: 50px;
+            font-size: 0.9rem;
+            color: #888;
+            text-align: center;
+        }
+
+        .footer span {
+            color: #444;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .subheading {
+                font-size: 1rem;
+            }
+
+            .card {
+                padding: 15px;
+            }
         }
     </style>
 </head>
 <body>
-    <h3></H3>
-        <H3>Radio MGIRI 90.4 Fm </H3>
-        <br><br>
+    <h1>Radio MGIRI ERP Portal</h1>
+    <p class="subheading">Streamlining office management with ease and efficiency</p>
+
     <div class="container">
-        <div class="box" onclick="redirect('https://mgiriradio.github.io/office/Qsheet.html')">Qsheet</div>
-        <div class="box" onclick="redirect('https://mgiriradio.github.io/office/Quotation.html')">Quotations</div>
-        <div class="box" onclick="redirect('https://mgiriradio.github.io/office/Recording.html')">Recording Scheduller</div>
-        <div class="box" onclick="redirect('https://mgiriradio.github.io/office/Visitors Entry.html')">Visitors Entry</div>
-        <div class="box" onclick="redirect('https://docs.google.com/forms/d/e/1FAIpQLSdzMV2Uv97-o4VJlEsDeHoN0AoEzs46IN0uV-HEvEoGTqd_pQ/viewform?usp=sf_link')">Training Application</div>
-        <div class="box" onclick="redirect('https://docs.google.com/forms/d/e/1FAIpQLSdZnMXVQD1JQ41LliNG0XQPqkZaJISo6UviiyyoX9sOPub-1g/viewform?usp=sf_link')">Payment Reciept</div>
-        <div class="box" onclick="redirect('https://docs.google.com/forms/d/e/1FAIpQLSc1TlDi9NRCkamtVzKXl8zEzLRazgn9Yg_-Rj7P6jD9LCjMtg/viewform?usp=sf_link')">Bhajan Application</div>
-        <div class="box" onclick="redirect('https://docs.google.com/forms/d/e/1FAIpQLSda0cwYZ2OctcgaBimUEPs1Od7mhxZ_0MHKNH_UolYZ7JBNoQ/viewform?usp=sf_link')">Certificate Management</div>
-        <div class="box" onclick="redirect('https://docs.google.com/spreadsheets/d/1cD087-rCPfEd2R1fdhy6UlYEOJ-HzodDIgGfKtrcCTg/edit?gid=0#gid=0')">View sheets</div>
-
-
+        <div class="card" onclick="redirect('https://mgiriradio.github.io/office/Qsheet.html')">
+            <h3>Morning/Evening Qsheet</h3>
+            <p>Manage and access your daily Qsheets</p>
+        </div>
+        <div class="card" onclick="redirect('https://mgiriradio.github.io/office/Aftenroon.html')">
+            <h3>Afternoon Qsheet</h3>
+            <p>Organize your afternoon schedules</p>
+        </div>
+        <div class="card" onclick="redirect('https://mgiriradio.github.io/office/Quotation.html')">
+            <h3>Quotations</h3>
+            <p>Generate and manage cost quotations</p>
+        </div>
+        <div class="card" onclick="redirect('https://mgiriradio.github.io/office/Recording.html')">
+            <h3>Recording Scheduler</h3>
+            <p>Plan and track your recording sessions</p>
+        </div>
+        <div class="card" onclick="redirect('https://mgiriradio.github.io/office/Visitors Entry.html')">
+            <h3>Visitors Entry</h3>
+            <p>Log and manage visitor details</p>
+        </div>
+        <div class="card" onclick="redirect('https://mgiriradio.github.io/office/apply-training.html')">
+            <h3>Training Application</h3>
+            <p>Submit and track training applications</p>
+        </div>
+        <div class="card" onclick="redirect('https://mgiriradio.github.io/office/apply-for-bhajan.html')">
+            <h3>Bhajan Application</h3>
+            <p>Apply for and manage Bhajan applications</p>
+        </div>
+        <div class="card" onclick="redirect('https://mgiriradio.github.io/office/Program-ID.html')">
+            <h3>Assign Program ID</h3>
+            <p>Assign unique IDs for programs</p>
+        </div>
     </div>
-    <br><br><br><h2 style="text-align: center; font-style: italic; color: rgb(146, 109, 109);">Developed by Mahatma Gandhi Institute for Rural Industrialization</h2>
+
+    <footer class="footer">
+        Developed by <span>Mahatma Gandhi Institute for Rural Industrialization</span>
+    </footer>
+
     <script>
         function redirect(url) {
-            window.open(url, '_blank'); // Open in a new tab
+            window.open(url, '_blank');
         }
     </script>
-<!--The above code is written by Lakhan Raut, Radio MGIRI 90.4 fm-->
 </body>
-
 </html>
