@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Radio MGIRI 90.4FM - Quotation Form</title>
+    <title>Recording Schedulers</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         * {
@@ -13,63 +13,61 @@
             font-family: 'Poppins', sans-serif;
         }
         body {
-            background: linear-gradient(to right, #2c3e50, #4ca1af);
+            background: linear-gradient(to right, #006366, #00b3b3);
             display: flex;
-            align-items: center;
             justify-content: center;
-            min-height: 100vh; /* Ensures the body takes at least the full height of the viewport */
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
             color: #fff;
-            padding: 20px; /* Adds padding to the body */
         }
         .container {
-            background-color: #34495e;
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-            width: 100%; /* Makes the container responsive */
-            max-width: 600px; /* Limits the maximum width */
-            overflow: auto; /* Ensures content is scrollable if it exceeds the container height */
+            background-color: #004d4d;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            width: 700px; /* Fixed width for desktop view */
+            animation: fadeIn 0.5s;
         }
-        h4, h5 {
+        h5 {
             text-align: center;
             margin-bottom: 20px;
+            font-size: 36px;
+            color: #f1c40f;
         }
-        h4 {
+        h3 {
+            margin-bottom: 15px;
             font-size: 24px;
             color: #ecf0f1;
         }
-        h5 {
-            font-size: 32px;
-            color: #e67e22;
-        }
-        input, textarea, select {
+        input, textarea {
             width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #bdc3c7;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: none;
             border-radius: 5px;
-            font-size: 16px;
-            transition: border-color 0.3s;
+            transition: background-color 0.3s;
+            font-size: 16px; /* Larger font size */
         }
-        input:focus, textarea:focus, select:focus {
-            border-color: #e67e22;
+        input:focus, textarea:focus {
+            background-color: #e6f7f7;
             outline: none;
         }
         #submit {
             background-color: #e67e22;
             color: white;
             border: none;
-            cursor: pointer;
             padding: 15px;
-            font-size: 18px;
             border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
             transition: background-color 0.3s;
         }
         #submit:hover {
             background-color: #d35400;
         }
         #success-message {
-            display: none;
+            display: none; /* Initially hidden */
             background-color: #27ae60;
             color: #fff;
             padding: 10px;
@@ -81,99 +79,76 @@
             background-color: #2980b9;
             color: white;
             border: none;
-            padding: 10px 15px;
+            padding: 15px;
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s;
-            margin: 10px 0;
             width: 100%;
+            margin-top: 10px;
+            font-size: 16px; /* Consistent font size */
         }
         .button:hover {
             background-color: #3498db;
         }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            color: #ecf0f1;
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
-        th, td {
-            padding: 10px;
-            border: 1px solid #bdc3c7;
-            text-align: left;
-        }
-        th {
-            background-color: #2980b9;
-        }
-        @media (max-width: 600px) {
-            h4, h5 {
-                font-size: 20px;
+        @media (max-width: 800px) {
+            .container {
+                width: 90%; /* Responsive width for smaller screens */
             }
         }
     </style>
 </head>
 <body>
+
     <div class="container">
         <h5>Radio MGIRI 90.4FM</h5>
-        <h4>Get Quotation On Your Email</h4>
-        <form method="post" action="https://script.google.com/macros/s/AKfycbwK_NXmST1QLTHyHzm6c5gL-eTAQoL6PoGJHH_A1bibzxRB8UjaCbBnBp-GJnGhMbyX/exec" name="QMS-HTML">
-            <input type="text" name="Name" placeholder="Full Name" required>
-            <input type="text" name="Address" placeholder="Address" required>
-            <input type="number" name="Number" placeholder="Mobile Number" required>
-            
-			<input type="email" name="Email" placeholder="Email" required>
-            <br>
-            <input type="number" name="sec" placeholder="Number of seconds" required>
-            <input type="number" name="slots" placeholder="Number of Slots per Day" required>
-            <input type="number" name="day" placeholder="Number of Days" required>
-            <br>
-            <textarea name="message" rows="3" placeholder="Message or Comment"></textarea>
+        <h3>Schedule Your Recording</h3>
+        <form method="post" action="https://script.google.com/macros/s/AKfycbzmmoD4eDWxIJYfLm3d4PJ0q25wos_952sqn4tLQQypsFuSMegdYKHqxmgvLa0qvJd2/exec" name="Recording">
+            <input type="date" id="Recording_date" name="Recording_date" required>
+            <input type="time" id="RecTime" name="RecTime" min="09:00" max="18:00" required>
+            <input type="text" name="Application_ID" placeholder="Application Id (optional)">
+            <input type="text" name="Program_Name" placeholder="Program Name" required>
+            <input type="text" name="Presenter_Name" placeholder="Presenter Name / Bhajan Mandal Name">
+            <input type="text" name="Number" placeholder="Mobile Number">
+            <input type ="email" name="Email" placeholder="Email" required>
+            <input type="text" name="Rj_Name" placeholder="RJ Name (The one who is taking interview)">
+            <input type="text" name="Editing_Assigned_To" placeholder="Editing Assigned to:">
+            <h3>Scheduled Date of Broadcasting:</h3>
+            <input type="date" id="Broadcasting_ON" name="Broadcasting_ON" required>
+            <input type="time" id="Broad_Time" name="Broad_Time" required>
+            <h3>Repeat Broadcasting (Optional):</h3>
+            <input type="date" id="Repeat_ON" name="Repeat_ON">
+            <input type="time" id="Broad_Repeat_Time" name="Broad_Repeat_Time">
+            <textarea name="message" rows="3" placeholder="Remarks / Comment"></textarea>
             <input type="submit" value="Submit" id="submit">
-            <div id="success-message">Quotation Sent. Please Check Your Email</div>
+            <div id="success-message">Recording Scheduled. Please check your calendar</div>
         </form>
-        <br>
-        <button class="button" onclick="window.open('https://docs.google.com/spreadsheets/d/1WMgzesYXdpmRN_-3a7WjhYGZGwa2xPfISnTy8VdcFL8/edit?usp=sharing')">View Queries (!Needs Access)</button>
-
-        
-        <br><br><br><h4>Advertisement Cost Calculator</h4>
-        <form onsubmit="handleSubmit(event)">
-            <label for="sec">Seconds per slot:</label>
-            <input type="number" id="sec" name="sec" required><br>
-            <label for="days">Number of days:</label>
-            <input type="number" id="days" name="days" required><br>
-            <label for="slots">Number of slots per day:</label>
-            <input type="number" id="slots" name="slots" required><br>
-            <input type="submit" value="Calculate Cost" class="button">
-        </form>
-        <div id="output"></div>
-		<footer style="text-align: center; margin-top: 20px; font-size: 14px; color: #aaa;">
-            Developed by Mahatma Gandhi Institute for Rural Industrialization
-        </footer>
+        <button type="button" class="button" onclick="window.open('https://docs.google.com/spreadsheets/d/1WMgzesYXdpmRN_-3a7WjhYGZGwa2xPfISnTy8VdcFL8/edit?usp=sharing')">View Scheduled Recording</button>
+        <button type="button" class="button" onclick="window.open('https://mgiriradio.github.io/office/Qsheet.html', '_blank')">Update Qsheet</button>
+        <h2 style="text-align: center; font-style: italic; color: rgb(167, 161, 161);">Developed by Mahatma Gandhi Institute for Rural Industrialization</h2>
     </div>
 
     <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbwK_NXmST1QLTHyHzm6c5gL-eTAQoL6PoGJHH_A1bibzxRB8UjaCbBnBp-GJnGhMbyX/exec';
-        const form = document.forms['QMS-HTML'];
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzmmoD4eDWxIJYfLm3d4PJ0q25wos_952sqn4tLQQypsFuSMegdYKHqxmgvLa0qvJd2/exec';
+        const form = document.forms['Recording'];
         const successMessage = document.getElementById('success-message');
 
         form.addEventListener('submit', e => {
             e.preventDefault();  // Prevent default form submission
-
-            // Show the loading message
             successMessage.style.display = 'block';  
-            successMessage.innerText = 'Sending a Email...'; // Change to loading message
+            successMessage.innerText = 'Submitting...'; // Change to loading message
 
             fetch(scriptURL, { method: 'POST', body: new FormData(form) })
                 .then(response => {
                     if (response.ok) {
-                        // Show success message
-                        successMessage.innerText = 'Quotation Sent. Please Check Your Email';
+                        successMessage.innerText = 'Recording Scheduled. Please check your calendar';
                         form.reset();  // Optionally reset the form fields
                     } else {
-                        // Show error if the form submission fails
                         successMessage.innerText = 'Failed to submit the form. Please try again.';
                     }
-                    // Hide message after 5 seconds
                     setTimeout(() => {
                         successMessage.style.display = 'none';
                     }, 5000);
@@ -181,39 +156,11 @@
                 .catch(error => {
                     successMessage.innerText = 'Error! Please try again.';
                     console.error('Error!', error.message);
-                    // Hide message after 5 seconds
                     setTimeout(() => {
                         successMessage.style.display = 'none';
                     }, 5000);
                 });
         });
-
-        function calculateQuotation(totalSec) {
-            var adCost = totalSec * 7.40;
-            var adGST = adCost * 0.18;
-            var finalCost = adCost + adGST;
-            return finalCost.toFixed(2);
-        }
-
-        function handleSubmit(event) {
-            event.preventDefault();
-            var sec = document.getElementById("sec").value;
-            var days = document.getElementById("days").value;
-            var slots = document.getElementById("slots").value;
-            var totalSec = sec * days * slots;
-            var quotationAmount = calculateQuotation(totalSec);
-            var outputTable = "<table>";
-            outputTable += "<tr><th>Description</th><th>Value</th></tr>";
-            outputTable += "<tr><td>Seconds per slot</td><td>" + sec + "</td></tr>";
-            outputTable += "<tr><td>Number of days</td><td>" + days + "</td></tr>";
-            outputTable += "<tr><td>Number of slots per day</td><td>" + slots + "</td></tr>";
-            outputTable += "<tr><td>Total seconds</td><td>" + totalSec + "</td></tr>";
-            outputTable += "<tr><td>Ad cost</td><td>₹" + (totalSec * 7.40).toFixed(2) + "</td></tr>";
-            outputTable += "<tr><td>GST</td><td>₹" + ((totalSec * 7.40) * 0.18).toFixed(2) + "</td></tr>";
-            outputTable += "<tr><td>Total cost</td><td>₹" + quotationAmount + "</td></tr>";
-            outputTable += "</table>";
-            document.getElementById("output").innerHTML = outputTable;
-        }
     </script>
 </body>
 </html>
