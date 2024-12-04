@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8" />
+    <title>Radio MGIRI | Afternoon Cue Sheet</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #264601;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        label {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        input, textarea, select, button {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        input:focus, textarea:focus, select:focus, button:focus {
+            outline: none;
+            border-color: #264601;
+            box-shadow: 0 0 4px rgba(38, 70, 1, 0.3);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        button {
+            background-color: #264601;
+            color: #ffffff;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #1b3900;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .success-message {
+            background-color: #28a745;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 8px;
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .link-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .link-buttons button {
+            background-color: #007bff;
+        }
+
+        .link-buttons button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Radio MGIRI 90.4FM</h1>
+        <h2>Afternoon Cue Sheet</h2>
+        <form method="post" action="https://script.google.com/macros/s/AKfycbwxz2KKun6VpCgG6aVjDOwg-dXKCZceXrXjyoew7CgYJ70TcuxjKYK16KVub25RUim--g/exec" name="M-E_Qsheets">
+            <label for="date">Select a Date</label>
+            <input type="date" id="date" name="date" required />
+
+
+            <label for="Pashudhan">Pashudhan:</label>
+            <input type="text" id="Krushi-Sandesh" name="pashudhan" placeholder="Enter Pashudhan Info" required />
+
+        
+
+ <!--Health Awarness-->
+                <label for="आरोग्य जनजागृती कार्यक्रम">आरोग्य जनजागृती कार्यक्रम:</label>
+                <input type="text" name="health" placeholder="आरोग्य जनजागृती कार्यक्रम"required>
+
+<!--गीत नए जमाने के-->
+                <label for="गीत नए जमाने के">गीत नए जमाने के:</label>                
+                <input type="text" name="mishraGite" placeholder="गीत नए जमाने के"required>
+               
+                <select id="misharGeetEditedBy" name="misharGeetEditedBy" onchange="toggleVisibility('misharGeetEditedBy', 'other_misharGeetEditedBydiv', '')">
+					<option value="misharGeetEditedBy">Track_Editied_BY</option>
+                    <option value="RJ सुहास">RJ Suhas</option>
+                    <option value="RJ वैशाली">RJ Vaishali</option>
+                    <option value="RJ निलकमल">RJ NIlkamal</option>
+                    <option value="RJ राधिका">RJ Radhika</option>
+                    <option value="RJ स्वानन्द">RJ Swanand</option>
+                    <option value="RJ कल्पना">RJ Kalpana</option>
+                    <option value="RJ लखन">RJ Lakhan</option>
+					<option value="">Other</option>
+				</select>
+							<!-- Hidden Input for "Other" -->
+							<div id="other_misharGeetEditedBydiv" style="display: none;">
+								<label for="other_misharGeetEditedBy">Please specify:</label>
+								<input type="text" id="misharGeetEditedBy" name="misharGeetEditedByOther">
+							</div>
+							
+			
+                <select id="statusMishragite" name="statusMishragite">
+                    <option value="OLD">OLD</option>
+                    <option value="FRESH">FRESH</option>
+                    <option value="Repeat">Repeat</option>
+				</select>
+				
+
+<!--Prog 3-->
+                <label for="prog3">कार्यक्रम 3:</label>                
+				<input type="text" name="prog3" placeholder="कार्यक्रम 3"required>
+				<input type="text" name="prog3detail" placeholder="कार्यक्रम 3 विवरण"required>
+                <select id="prog3detailniv" name="prog3detailniv" onchange="toggleVisibility('prog3detailniv', 'other_prog3detailnivdiv', '')">
+					<option value="निवेदन">निवेदन</option>
+                    <option value="RJ सुहास">RJ Suhas</option>
+                    <option value="RJ वैशाली">RJ Vaishali</option>
+                    <option value="RJ निलकमल">RJ NIlkamal</option>
+                    <option value="RJ राधिका">RJ Radhika</option>
+                    <option value="RJ स्वानन्द">RJ Swanand</option>
+                    <option value="RJ कल्पना">RJ Kalpana</option>
+                    <option value="RJ लखन">RJ Lakhan</option>
+                    <option value="">Other</option>
+				</select>
+							<!-- Hidden Input for "Other" -->
+							<div id="other_prog3detailnivdiv" style="display: none;">
+								<label for="युवा_विश्व_निवेदन">Please specify:</label>
+								<input type="text" id="prog3detailniv" name="prog3detailnivOther">
+							</div>
+                <select id="statusProg3" name="statusProg3">
+                    <option value="OLD">OLD</option>
+                    <option value="FRESH">FRESH</option>
+                    <option value="Repeat">Repeat</option>
+				</select>
+				<br>
+
+
+
+<!--Prog 4 -->
+            <label for="prog4">कार्यक्रम 4:</label>                
+            <input type="text" name="prog4" placeholder="कार्यक्रम 4"required>
+            <input type="text" name="prog4detail" placeholder="कार्यक्रम 4 विवरण"required>
+            <select id="prog4detailniv" name="prog4detailniv" onchange="toggleVisibility('prog4detailniv', 'other_prog4detailnivdiv', '')">
+                <option value="निवेदन">निवेदन</option>
+                <option value="RJ सुहास">RJ Suhas</option>
+                <option value="RJ वैशाली">RJ Vaishali</option>
+                <option value="RJ निलकमल">RJ NIlkamal</option>
+                <option value="RJ राधिका">RJ Radhika</option>
+                <option value="RJ स्वानन्द">RJ Swanand</option>
+                <option value="RJ कल्पना">RJ Kalpana</option>
+                <option value="RJ लखन">RJ Lakhan</option>
+                <option value="">Other</option>
+            </select>
+                        <!-- Hidden Input for "Other" -->
+                        <div id="other_prog4detailnivdiv" style="display: none;">
+                            <label for="prog4detailnivOther">Please specify:</label>
+                            <input type="text" id="prog4detailniv" name="prog4detailnivOther">
+                        </div>
+            <select id="statusProg4" name="statusProg4">
+                <option value="OLD">OLD</option>
+                <option value="FRESH">FRESH</option>
+                <option value="Repeat">Repeat</option>
+            </select>
+            <br>
+                <label for="gitamala">गीतमाला:</label>
+
+				<input type="text" name="gitamala" placeholder="गीतमाला Track"required>
+                <select id="gitmalaEditedBy" name="gitmalaEditedBy" onchange="toggleVisibility('gitmalaEditedBy', 'other_gitmalaEditedBydiv', '')">
+					<option value="Edited_BY">Edited_BY</option>
+                    <option value="RJ सुहास">RJ Suhas</option>
+                    <option value="RJ वैशाली">RJ Vaishali</option>
+                    <option value="RJ निलकमल">RJ NIlkamal</option>
+                    <option value="RJ राधिका">RJ Radhika</option>
+                    <option value="RJ स्वानन्द">RJ Swanand</option>
+                    <option value="RJ कल्पना">RJ Kalpana</option>
+                    <option value="RJ लखन">RJ Lakhan</option>
+                    <option value="">Other</option>
+				</select>
+							<!-- Hidden Input for "Other" -->
+							<div id="other_gitmalaEditedBydiv" style="display: none;">
+								<label for="gitmalaEditedByOther">Please specify:</label>
+								<input type="text" id="gitmalaEditedByOther" name="gitmalaEditedByOther">
+							</div>
+
+                <select id="statusGeetmala" name="statusGeetmala">
+                    <option value="OLD">OLD</option>
+                    <option value="FRESH">FRESH</option>
+                    <option value="Repeat">Repeat</option>
+				</select>
+				<br><br>
+				
+
+				
+                <label for="Advt Details">Advt Details:</label>
+
+				<textarea name="advt_info" rows="2" placeholder="Advertisemt Details seprated by comma"></textarea>
+
+                  <textarea name="remarks" rows="2" placeholder=" Remarks"></textarea>
+            
+        <button type="submit" id="submit">Generate</button>
+        </form>
+
+        <div id="success-message" class="success-message">Qsheet generated, please print it.</div>
+        <div class="link-buttons">
+            <button onclick="window.open('https://drive.google.com/drive/folders/1cywguVkZBicauPpNrsX6_aBImQrEcS56?usp=drive_link', '_blank')">View or Print Qsheet</button>
+            <button onclick="window.open('https://docs.google.com/spreadsheets/d/1Dx36oeB_5WEwgZ1mwzD7qtLRuFCv1emd2xF4qGQIPTo/edit?usp=sharing', '_blank')">View Qsheet Data</button>
+            <button onclick="window.open('https://mgiriradio.github.io/office/', '_blank')">Radio MGIRI ERP Portal</button>
+        </div>
+        <footer style="text-align: center; margin-top: 20px; font-size: 14px; color: #aaa;">
+            Developed by Mahatma Gandhi Institute for Rural Industrialization
+        </footer>
+    </div>
+<script>
+			const scriptURL = 'https://script.google.com/macros/s/AKfycbwxz2KKun6VpCgG6aVjDOwg-dXKCZceXrXjyoew7CgYJ70TcuxjKYK16KVub25RUim--g/exec';
+			const form = document.forms['M-E_Qsheets'];
+			const successMessage = document.getElementById('success-message');
+
+
+		form.addEventListener('submit', e => {
+        e.preventDefault();  // Prevent default form submission
+        
+        // Show the loading message
+        successMessage.style.display = 'block';  
+        successMessage.innerText = 'Generating...'; // Change to loading message
+        
+        fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+            .then(response => {
+                if (response.ok) {
+                    // Show success message
+                    successMessage.innerText = 'Qsheet generated, please print it';
+                    form.reset();  // Optionally reset the form fields
+                } else {
+                    // Show error if the form submission fails
+                    successMessage.innerText = 'Failed to submit the form. Please try again.';
+                }
+                // Hide message after 5 seconds
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 6000);
+            })
+            .catch(error => {
+                successMessage.innerText = 'Error! Please try again.';
+                console.error('Error!', error.message);
+                // Hide message after 5 seconds
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 6000);
+            });
+    });
+</script>
+    <script>
+        function toggleVisibility(dropdownId, targetDivId, toggleValue) {
+            const dropdownValue = document.getElementById(dropdownId).value;
+            const targetDiv = document.getElementById(targetDivId);
+            targetDiv.style.display = dropdownValue === toggleValue ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>
