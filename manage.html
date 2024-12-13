@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Scheduler</title>
+
+
+    <script>
+        async function authenticate() {
+          const username = document.getElementById("username").value;
+          const password = document.getElementById("password").value;
+          const errorDiv = document.getElementById("error");
+          errorDiv.textContent = "";
+      
+          if (!username || !password) {
+            errorDiv.textContent = "Please fill in all fields.";
+            return;
+          }
+      
+          try {
+            // Replace with your Google Apps Script URL
+            const response = await fetch("https://script.google.com/macros/s/AKfycbyrmiepfNyBjkbaqT6HCxEQmDqVgtCMppOy0qQfmkoyqxwzMWGHa7bGXA2wK7UiApxh9A/exec");
+            const users = await response.json();
+      
+            const user = users.find(u => u.username === username && u.password === password);
+      
+            if (user) {
+              // Set session storage item for authentication
+              sessionStorage.setItem("isLoggedIn", "true");
+              alert("Login successful!");
+              window.location.href = "https://mgiriradio.github.io/office/manage"; // Redirect to office
+            } else {
+              errorDiv.textContent = "Invalid username or password.";
+            }
+          } catch (error) {
+            console.error("Error:", error);
+            errorDiv.textContent = "Unable to authenticate. Try again later.";
+          }
+        }
+      </script>
+    <script>
+        // Check if the user is logged in
+        if (!sessionStorage.getItem("isLoggedIn")) {
+          // Redirect to login page if not authenticated
+          window.location.href = "https://mgiriradio.github.io/office/login.html";
+        }
+      </script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 10px;
+        }
+
+        .container {
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            padding: 100px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #264601;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        label {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        input, textarea, select, button {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #264601;
+            box-shadow: 0 0 4px rgba(38, 70, 1, 0.3);
+        }
+
+        button {
+            background-color: #264601;
+            color: #ffffff;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #1b3900;
+        }
+
+        .success-message {
+            background-color: #28a745;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 8px;
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .link-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .link-buttons button {
+            background-color: #007bff;
+        }
+
+        .link-buttons button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Task Scheduler</h1>
+        <form method="post" action="https://script.google.com/macros/s/AKfycbyxhmAzLObsYQHMJrUfAOrCeAewxI5y0JQCBduMTeUhwb2TwdixfkGpXz4O3yHAr0wX/exec" name="manage">
+            <label for="assingnedOn">Date of Task Assigned:</label>
+            <input type="date" name="assingnedOn" placeholder="Date of Assigned">
+            
+            <label for="TaskName">Task Category:</label>
+            <input type="text" name="task_Name" placeholder="Task Name">
+           
+            <label for="task_Description">Task Category:</label>
+            <select id="task_Description" name="task_Description" required>
+                <option value="Recording & Editing Audio">Recording & Editing Audio</option>
+                <option value="Editing Video">Editing VIdeo</option>
+                <option value="Camera Handling">Camera Handling</option>
+                <option value="Reels And video">Reels and Video</option>
+                <option value="Poster Making">Poster Making</option>
+
+                <option value="Social Media Management">Social media Management</option>
+                <option value="Quotation and Proposal Creation">Quotation and Proposal Creation</option>
+                <option value="Task Delegation and Follow-ups">Task Delegation and Follow-ups</option>
+                <option value="Billing and Invoice Generation">Billing and Invoice Generation</option>
+                <option value="Technical Support">Technical Support</option>
+                <option value="Filing and Archiving">Filing and Archiving</option>
+                <option value="Emails, Phone Calls, Memos">Emails, Phone Calls, Memos</option>
+                <option value="Document Drafting">Document Drafting </option>
+                <option value="Report drafting">Report Drafting</option>
+                <option value="Data Entry and Record Management">Data Entry and Record Management</option>
+                <option value="Other Managerial Work">Other Managerial Work</option>
+                <option value="Other work">Other work</option>
+            </select>
+
+
+
+
+            <label for="Assigned_By">Assigned By:</label>
+            <select id="Assigned_By" name="assigned_By" required>
+                <option value="Assigned_By">Assigned By</option>
+                <option value="Station Coordinator">Station Coordinator</option>
+                <option value="Station Co-Coordinator">Station Co- Coordinator</option>
+                <option value="Station Manager">Station Manager</option>
+            </select>
+
+            <label for="Assigned_To">Assigned To:</label>
+            <select id="Assigned_To" name="assigned_To">
+                <option value="">Assigned To</option>
+                <option value="RJ सुहास">Suhas Ingale</option>
+                <option value="RJ वैशाली">Vaishali Joge</option>
+                <option value="RJ निलकमल">Nilkamal Akhud</option>
+                <option value="RJ लखन">Lakhan Raut</option> 
+                <option value="Radhika Lokhande">Radhika Lokhande</option>
+                <option value="All">Radio Team</option> 
+            </select>
+
+            <label for="dueDate">Due Date:</label>
+            <input type="date" name="dueDate" placeholder="Due Date">
+            <input type="submit" value="Assign Task" id="submit"> 
+        </form>
+
+        <div class="success-message" id="success-message"></div>
+
+ 
+    </div>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyxhmAzLObsYQHMJrUfAOrCeAewxI5y0JQCBduMTeUhwb2TwdixfkGpXz4O3yHAr0wX/exec';
+        const form = document.forms['manage'];
+        const successMessage = document.getElementById('success-message');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();  // Prevent default form submission
+            
+            // Show the loading message
+            successMessage.style.display = 'block';  
+            successMessage.innerText = 'Assigning...'; // Change to loading message
+            
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => {
+                    if (response.ok) {
+                        // Show success message
+                        successMessage.innerText = 'Task Assigned';
+                        form.reset();  // Optionally reset the form fields
+                    } else {
+                        // Show error if the form submission fails
+                        successMessage.innerText = 'Failed to Assign. Please try again.';
+                    }
+                    // Hide message after 6 seconds
+                    setTimeout(() => {
+                        successMessage.style.display = 'none';
+                    }, 6000);
+                })
+                .catch(error => {
+                    successMessage.innerText = 'Error! Please try again.';
+                    console.error('Error!', error.message);
+                    // Hide message after 6 seconds
+                    setTimeout(() => {
+                        successMessage.style.display = 'none';
+                    }, 6000);
+                });
+        });
+    </script>
+
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyxhmAzLObsYQHMJrUfAOrCeAewxI5y0JQCBduMTeUhwb2TwdixfkGpXz4O3yHAr0wX/exec'; // Replace with your Google Apps Script URL
+
+    // Function to fetch and display tasks
+    function fetchTasks() {
+        fetch(`${scriptURL}?action=getTasks`)
+            .then(response => response.json())
+            .then(data => {
+                const taskList = document.getElementById('tasks');
+                taskList.innerHTML = ''; // Clear the current list
+                data.forEach(task => {
+                    const li = document.createElement('li');
+                    li.textContent = `${task.taskName} - Assigned to: ${task.assignedTo} - Due: ${task.dueDate}`;
+                    taskList.appendChild(li);
+                });
+            })
+            .catch(error => console.error('Error fetching tasks:', error));
+    }
+
+    // Event listener for form submission
+    document.getElementById('taskForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the form from submitting the traditional way
+
+        const taskName = document.getElementById('taskName').value;
+        const assignedTo = document.getElementById('assignedTo').value;
+        const dueDate = document.getElementById('dueDate').value;
+
+        // Send a POST request to assign a task
+        fetch(scriptURL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+                action: 'assignTask',
+                taskName: taskName,
+                assignedTo: assignedTo,
+                dueDate: dueDate
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert(data.message);
+                fetchTasks(); // Refresh the task list
+                document.getElementById('taskForm').reset(); // Reset the form
+            }
+        })
+        .catch(error => console.error('Error assigning task:', error));
+    });
+
+    // Fetch tasks when the page loads
+    window.onload = fetchTasks;
+</script>
+</body>
+</html>
