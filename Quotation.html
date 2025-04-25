@@ -116,7 +116,7 @@
     <div class="container">
         <h5>Radio MGIRI 90.4FM</h5>
         <h4>Get Quotation On Your Email</h4>
-        <form method="post" action="https://script.google.com/macros/s/AKfycbwK_NXmST1QLTHyHzm6c5gL-eTAQoL6PoGJHH_A1bibzxRB8UjaCbBnBp-GJnGhMbyX/exec" name="QMS-HTML">
+        <form method="post" action="https://script.google.com/macros/s/AKfycbx2mdlgVv8VFj3TxkW7F1_M9oSHQr1q_P58mMGs2xsDiym_b3luxEA9fTNPxkNsbjCqyA/exec" name="QMS-HTML">
             <input type="text" name="Name" placeholder="Full Name" required>
             <input type="text" name="Address" placeholder="Address" required>
             <input type="number" name="Number" placeholder="Mobile Number" required>
@@ -152,7 +152,7 @@
     </div>
 
     <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbwK_NXmST1QLTHyHzm6c5gL-eTAQoL6PoGJHH_A1bibzxRB8UjaCbBnBp-GJnGhMbyX/exec';
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbx2mdlgVv8VFj3TxkW7F1_M9oSHQr1q_P58mMGs2xsDiym_b3luxEA9fTNPxkNsbjCqyA/exec';
         const form = document.forms['QMS-HTML'];
         const successMessage = document.getElementById('success-message');
 
@@ -192,7 +192,7 @@
             var adCost = totalSec * 7.40;
             var adGST = adCost * 0.18;
             var finalCost = adCost + adGST;
-            return finalCost.toFixed(2);
+            return finalCost.toFixed(0);
         }
 
         function handleSubmit(event) {
