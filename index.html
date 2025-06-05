@@ -1,9 +1,12 @@
+
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+<!-- saved from url=(0036)https://mgiriradio.github.io/office/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Radio MGIRI ERP</title>
+   <link rel="manifest" href="manifest.json" />
+   <meta name="theme-color" content="#ffffff" />
     <style>
         /* General Reset */
         * {
@@ -102,56 +105,68 @@
     <p class="subheading">Streamlining office management with ease and efficiency</p>
 
     <div class="container">
-        <div class="card" onclick="redirect('https://mgiriradio.github.io/office/Qsheet.html')">
+        <div class="card" onclick="redirect(&#39;https://mgiriradio.github.io/office/Qsheet.html&#39;)">
             <h3>Morning/Evening Qsheet</h3>
             <p>Manage and access your daily Qsheets</p>
         </div>
-        <div class="card" onclick="redirect('https://mgiriradio.github.io/office/Aftenroon.html')">
+        <div class="card" onclick="redirect(&#39;https://mgiriradio.github.io/office/Aftenroon.html&#39;)">
             <h3>Afternoon Qsheet</h3>
             <p>Organize your afternoon schedules</p>
         </div>
-        <div class="card" onclick="redirect('https://mgiriradio.github.io/office/Quotation.html')">
+        <div class="card" onclick="redirect(&#39;https://mgiriradio.github.io/office/Quotation.html&#39;)">
             <h3>Quotations</h3>
             <p>Generate and manage cost quotations</p>
         </div>
-        <div class="card" onclick="redirect('https://mgiriradio.github.io/office/Recording.html')">
+        <div class="card" onclick="redirect(&#39;https://mgiriradio.github.io/office/Recording.html&#39;)">
             <h3>Recording Scheduler</h3>
             <p>Plan and track your recording sessions</p>
         </div>
-        <div class="card" onclick="redirect('https://mgiriradio.github.io/office/Visitors Entry.html')">
+        <div class="card" onclick="redirect(&#39;https://mgiriradio.github.io/office/Visitors Entry.html&#39;)">
             <h3>Visitors Entry</h3>
             <p>Log and manage visitor details</p>
         </div>
-        <div class="card" onclick="redirect('https://mgiriradio.github.io/office/apply-training.html')">
+        <div class="card" onclick="redirect(&#39;https://mgiriradio.github.io/office/apply-training.html&#39;)">
             <h3>Training Application</h3>
             <p>Submit and track training applications</p>
         </div>
-        <div class="card" onclick="redirect('https://drive.google.com/drive/folders/1zLlMPrFB5BQhWu-s1ghkU6aODEx17cWc?usp=sharing')">
+        <div class="card" onclick="redirect(&#39;https://drive.google.com/drive/folders/1zLlMPrFB5BQhWu-s1ghkU6aODEx17cWc?usp=sharing&#39;)">
             <h3>Bhajan Application</h3>
             <p>Download Format for Bhajan application</p>
         </div>
-        <div class="card" onclick="redirect('https://mgiriradio.github.io/office/Program-ID.html')">
+        <div class="card" onclick="redirect(&#39;https://mgiriradio.github.io/office/Program-ID.html&#39;)">
             <h3>Assign Program ID</h3>
             <p>Assign unique IDs for programs</p>
         </div>
-              <div class="card" onclick="redirect('https://script.google.com/macros/s/AKfycbzqz6HJO2TthtC5i0HajSXkOoJWa_8jAzfPFLowgWGsZa6MMh1xkIyw5rT5uNqbxVDE/exec')">
+              <div class="card" onclick="redirect(&#39;https://script.google.com/macros/s/AKfycbzqz6HJO2TthtC5i0HajSXkOoJWa_8jAzfPFLowgWGsZa6MMh1xkIyw5rT5uNqbxVDE/exec&#39;)">
             <h3>View Tasks</h3>
             <p>View Tasks and Update Status</p>
         </div>
-        <div class="card" onclick="redirect('https://mgiriradio.github.io//office/manage')">
+        <div class="card" onclick="redirect(&#39;https://mgiriradio.github.io//office/manage&#39;)">
             <h3>Assign Task </h3>
             <p>Reqiures Access to Assign</p>
         </div>
     </div>
 
+    <button id="install-btn" style="display: none;">Add to Home Screen</button>
+
     <footer class="footer">
         Developed by <span>Mahatma Gandhi Institute for Rural Industrialization</span>
     </footer>
+<script>
+// Register Service Worker
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(() => console.log('Service Worker Registered'))
+        .catch(err => console.log('SW registration failed:', err));
+    }
+  </script>
+
 
     <script>
         function redirect(url) {
             window.open(url, '_blank');
         }
     </script>
-</body>
-</html>
+
+
+</body></html>
