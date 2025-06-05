@@ -9,11 +9,25 @@
    <meta name="theme-color" content="#ffffff" />
     <style>
         /* General Reset */
+        
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+#install-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #007bff;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 9999;
+}
 
         body {
             font-family: 'Roboto', sans-serif;
@@ -148,6 +162,8 @@
     </div>
 
     <button id="install-btn" style="display: none;">Add to Home Screen</button>
+
+  <script src="install.js"></script>
 
     <footer class="footer">
         Developed by <span>Mahatma Gandhi Institute for Rural Industrialization</span>
