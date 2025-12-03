@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio MGIRI 90.4 FM - Singing Competition Registration</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 05px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .header .radio-name {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .header .tagline {
+            font-size: 0.9em;
+            opacity: 0.95;
+        }
+
+        .info-section {
+            background: #f8f9fa;
+            padding: 25px 30px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .info-item {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-item strong {
+            color: #667eea;
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.9em;
+        }
+
+        .info-item span {
+            color: #333;
+            font-size: 1em;
+        }
+
+        .competition-details {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .competition-details h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .competition-details ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .competition-details li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #555;
+        }
+
+        .competition-details li:before {
+            content: "🎵";
+            position: absolute;
+            left: 0;
+        }
+
+        .contact-section {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            flex: 1;
+            min-width: 150px;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            text-align: center;
+            font-weight: bold;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: inline-block;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .call-btn {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .whatsapp-btn {
+            background: #25D366;
+            color: white;
+        }
+
+        .map-btn {
+            background: #FF5722;
+            color: white;
+        }
+
+        .form-section {
+            padding: 40px 30px;
+        }
+
+        .form-section h2 {
+            color: #333;
+            margin-bottom: 25px;
+            text-align: center;
+            font-size: 1.5em;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+
+        .form-group label .required {
+            color: #e74c3c;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border-color 0.3s;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .loading-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .loading-overlay.active {
+            display: flex;
+        }
+
+        .loading-content {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            max-width: 300px;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loading-text {
+            color: #333;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+
+        .success-message {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .success-message.active {
+            display: flex;
+        }
+
+        .success-content {
+            background: white;
+            padding: 50px 40px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 400px;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .success-icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+        }
+
+        .success-content h2 {
+            color: #4CAF50;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        .success-content p {
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .close-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .close-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 600px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 1.5em;
+            }
+
+            .contact-btn {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <div class="loading-text">Submitting your registration...</div>
+        </div>
+    </div>
+
+    <!-- Success Message -->
+    <div class="success-message" id="successMessage">
+        <div class="success-content">
+            <div class="success-icon">🎉</div>
+            <h2>Registration Successful!</h2>
+            <p>Thank you for registering! Your submission has been received successfully. Radio MGIRI will contact you soon with more details about the competition.</p>
+            <button class="close-btn" onclick="closeSuccessMessage()">Done</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <div class="radio-name">Radio MGIRI 90.4 FM</div>
+            <h1>🎤 Singing Competition 🎤</h1>
+            <p class="tagline">Show Your Talent, Win Hearts!</p>
+        </div>
+
+        <div class="info-section">
+            <div class="info-grid">
+                <div class="info-item">
+                    <strong>📅 Registration Till</strong>
+                    <span>20 December 2025</span>
+                </div>
+                <div class="info-item">
+                    <strong>🎭 Competition Date</strong>
+                    <span>January 2026</span>
+                </div>
+                <div class="info-item">
+                    <strong>📍 Location</strong>
+                    <span>MGIRI, Wardha</span>
+                </div>
+                <div class="info-item">
+                    <strong>💰 Entry Fee</strong>
+                    <span>FREE</span>
+                </div>
+            </div>
+
+            <div class="competition-details">
+                <h3>Competition Details</h3>
+                <ul>
+                    <li>Open to singers between ages 10 to 25</li>
+                    <li>Sing any of your favorite songs</li>
+                    <li>Musical instruments are welcome</li>
+                    <li>Free to enter - No registration fee</li>
+                </ul>
+            </div>
+
+            <div class="contact-section">
+                <a href="tel:9561558899" class="contact-btn call-btn">📞 Call Us</a>
+                <a href="https://wa.me/919561558899" target="_blank" class="contact-btn whatsapp-btn">💬 WhatsApp</a>
+                <a href="https://www.google.com/maps/dir//PHRV%2B5RH+Mahatma+Gandhi+Institute+for+Rural+Industrialization,+Maganwadi,+Ramnagar,+Wardha,+Maharashtra+442001/@20.748458,78.6001475,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3bd47f138664bcab:0x8e5835bf1cf4b008!2m2!1d78.5948315!2d20.7398579?entry=ttu&g_ep=EgoyMDI1MTEzMC4wIKXMDSoASAFQAw%3D%3D" class="contact-btn map-btn">🗺️ Location Link</a>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h2>Registration Form</h2>
+            <form id="registrationForm" method="POST" action="https://script.google.com/macros/s/AKfycbwXaqyWTxPBs_MyJI4WfYHaxlgSmJxw2VfzS1gXonvpayGILHDhC1tGEe_qVbVuDzMS/exec">
+                <div class="form-group">
+                    <label for="name">Full Name <span class="required">*</span></label>
+                    <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                </div>
+
+                <div class="form-group">
+                    <label for="age">Age <span class="required">*</span></label>
+                    <input type="number" id="age" name="age" min="10" max="25" required placeholder="Enter your age (10-25)">
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Address <span class="required">*</span></label>
+                    <textarea id="address" name="address" required placeholder="Enter your complete address"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number <span class="required">*</span></label>
+                    <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number" pattern="[0-9]{10}">
+                </div>
+
+                <button type="submit" class="submit-btn">Submit Registration</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('registrationForm');
+        const loadingOverlay = document.getElementById('loadingOverlay');
+        const successMessage = document.getElementById('successMessage');
+        const submitBtn = form.querySelector('.submit-btn');
+        
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const age = document.getElementById('age').value;
+            
+            if (age < 10 || age > 25) {
+                alert('Sorry! This competition is only for participants between ages 10 and 25.');
+                return false;
+            }
+
+            // Show loading overlay
+            loadingOverlay.classList.add('active');
+            submitBtn.disabled = true;
+
+            // Prepare form data
+            const formData = new FormData(form);
+
+            // Submit to Google Apps Script
+            fetch(form.action, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Hide loading overlay
+                loadingOverlay.classList.remove('active');
+                submitBtn.disabled = false;
+
+                // Show success message
+                successMessage.classList.add('active');
+
+                // Reset form
+                form.reset();
+            })
+            .catch(error => {
+                // Hide loading overlay
+                loadingOverlay.classList.remove('active');
+                submitBtn.disabled = false;
+
+                // Show error message
+                alert('Oops! Something went wrong. Please try again or contact us at 9561558899.');
+                console.error('Error:', error);
+            });
+        });
+
+        function closeSuccessMessage() {
+            successMessage.classList.remove('active');
+        }
+
+        // Close success message when clicking outside
+        successMessage.addEventListener('click', function(e) {
+            if (e.target === successMessage) {
+                closeSuccessMessage();
+            }
+        });
+    </script>
+</body>
+</html>
