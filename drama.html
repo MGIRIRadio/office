@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drama Competition 2026 - Registration Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 5px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+        
+        .info-box {
+            background: #f8f9fa;
+            padding: 25px;
+            border-left: 5px solid #667eea;
+            margin: 30px;
+            border-radius: 10px;
+        }
+        
+        .info-box h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .info-box ul {
+            list-style: none;
+            line-height: 1.8;
+        }
+        
+        .info-box ul li::before {
+            content: "✓ ";
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        
+        .info-item {
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .form-section {
+            padding: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+        
+        .required {
+            color: #e74c3c;
+        }
+        
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: all 0.3s;
+        }
+        
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .student-group {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .student-group h4 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        
+        .row {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 15px;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+        
+        .contact-info {
+            background: #667eea;
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .contact-info h3 {
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+        
+        .contact-info p {
+            margin: 8px 0;
+            font-size: 1.1em;
+        }
+        
+        .loading-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .loading-overlay.active {
+            display: flex;
+        }
+        
+        .loading-content {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        .loading-spinner {
+            width: 60px;
+            height: 60px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .loading-text {
+            color: #333;
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+        
+        .success-message {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            z-index: 10000;
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+        }
+        
+        .success-message.active {
+            display: block;
+        }
+        
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: #28a745;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 3em;
+            color: white;
+            animation: scaleIn 0.5s ease-out;
+        }
+        
+        @keyframes scaleIn {
+            0% { transform: scale(0); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .success-message h2 {
+            color: #28a745;
+            margin-bottom: 15px;
+        }
+        
+        .success-message p {
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        
+        .close-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .close-btn:hover {
+            background: #5568d3;
+        }
+        
+        .error-message {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            z-index: 10000;
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+        }
+        
+        .error-message.active {
+            display: block;
+        }
+        
+        .error-icon {
+            width: 80px;
+            height: 80px;
+            background: #dc3545;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 3em;
+            color: white;
+            animation: scaleIn 0.5s ease-out;
+        }
+        
+        .error-message h2 {
+            color: #dc3545;
+            margin-bottom: 15px;
+        }
+        
+        .error-message p {
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        
+        .highlight {
+            background: #fff3cd;
+            padding: 20px;
+            margin: 30px;
+            border-radius: 10px;
+            border-left: 5px solid #ffc107;
+        }
+        
+        .highlight strong {
+            color: #d63384;
+            font-size: 1.1em;
+        }
+        
+        @media (max-width: 600px) {
+            .row {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 1.5em;
+            }
+            
+            .container {
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎭 Drama Competition 2026</h1>
+            <p>Radio MGIRI 90.4 FM</p>
+        </div>
+        
+        <div class="highlight">
+            <p><strong>Competition Date: 12 January 2026</strong></p>
+            <p><strong>Location: MGIRI, Wardha</strong></p>
+        </div>
+        
+        <div class="info-box">
+            <h3>Competition Details</h3>
+            <ul>
+                <li class="info-item"><strong>Who Can Join:</strong> Ages 5 to 15 Years</li>
+                <li class="info-item"><strong>Entry Fee:</strong> FREE OF COST</li>
+                <li class="info-item"><strong>Theme:</strong> Open Theme (Let your creativity run wild!)</li>
+                <li class="info-item"><strong>Team Size:</strong> Minimum 5 – Maximum 10 students per group</li>
+                <li class="info-item"><strong>Duration:</strong> Maximum 10 minutes per act</li>
+            </ul>
+        </div>
+        
+        <div class="info-box">
+            <h3>Important Technical Guidelines</h3>
+            <ul>
+                <li class="info-item"><strong>LIVE ACTS ONLY:</strong> The act must be performed entirely live. Pre-recorded plays or lip-syncing are strictly prohibited.</li>
+                <li class="info-item"><strong>AUDIO SETUP:</strong> The venue will have a professional sound system. Students must be comfortable delivering dialogues using stand or microphones.</li>
+            </ul>
+        </div>
+        
+        <form class="form-section" id="registrationForm">
+            <h2 style="color: #667eea; margin-bottom: 30px; text-align: center;">Registration Form</h2>
+            
+            <div class="form-group">
+                <label>Teacher Name / Group Coordinator <span class="required">*</span></label>
+                <input type="text" name="coordinator" required>
+            </div>
+            
+            <div class="form-group">
+                <label>School Name <span class="required">*</span></label>
+                <input type="text" name="school" required>
+            </div>
+
+            <div class="form-group">
+                <label>Contact Number <span class="required">*</span></label>
+                <input type="number" name="mobile" required>
+            </div>
+
+            <h3 style="color: #667eea; margin: 30px 0 20px;">Student Details</h3>
+            
+            <div class="student-group">
+                <h4>Student 1 <span class="required">*</span></h4>
+                <div class="row">
+                    <div class="form-group">
+                        <label>Name <span class="required">*</span></label>
+                        <input type="text" name="student1_name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Age <span class="required">*</span></label>
+                        <input type="number" name="student1_age" min="5" max="15" required>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="student-group">
+                <h4>Student 2 <span class="required">*</span></h4>
+                <div class="row">
+                    <div class="form-group">
+                        <label>Name <span class="required">*</span></label>
+                        <input type="text" name="student2_name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Age <span class="required">*</span></label>
+                        <input type="number" name="student2_age" min="5" max="15" required>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="student-group">
+                <h4>Student 3 <span class="required">*</span></h4>
+                <div class="row">
+                    <div class="form-group">
+                        <label>Name <span class="required">*</span></label>
+                        <input type="text" name="student3_name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Age <span class="required">*</span></label>
+                        <input type="number" name="student3_age" min="5" max="15" required>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="student-group">
+                <h4>Student 4 <span class="required">*</span></h4>
+                <div class="row">
+                    <div class="form-group">
+                        <label>Name <span class="required">*</span></label>
+                        <input type="text" name="student4_name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Age <span class="required">*</span></label>
+                        <input type="number" name="student4_age" min="5" max="15" required>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="student-group">
+                <h4>Student 5 <span class="required">*</span></h4>
+                <div class="row">
+                    <div class="form-group">
+                        <label>Name <span class="required">*</span></label>
+                        <input type="text" name="student5_name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Age <span class="required">*</span></label>
+                        <input type="number" name="student5_age" min="5" max="15" required>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="student-group">
+                <h4>Student 6 (Optional)</h4>
+                <div class="row">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" name="student6_name">
+                    </div>
+                    <div class="form-group">
+                        <label>Age</label>
+                        <input type="number" name="student6_age" min="5" max="15">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="student-group">
+                <h4>Student 7 (Optional)</h4>
+                <div class="row">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" name="student7_name">
+                    </div>
+                    <div class="form-group">
+                        <label>Age</label>
+                        <input type="number" name="student7_age" min="5" max="15">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="student-group">
+                <h4>Student 8 (Optional)</h4>
+                <div class="row">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" name="student8_name">
+                    </div>
+                    <div class="form-group">
+                        <label>Age</label>
+                        <input type="number" name="student8_age" min="5" max="15">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="student-group">
+                <h4>Student 9 (Optional)</h4>
+                <div class="row">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" name="student9_name">
+                    </div>
+                    <div class="form-group">
+                        <label>Age</label>
+                        <input type="number" name="student9_age" min="5" max="15">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="student-group">
+                <h4>Student 10 (Optional)</h4>
+                <div class="row">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" name="student10_name">
+                    </div>
+                    <div class="form-group">
+                        <label>Age</label>
+                        <input type="number" name="student10_age" min="5" max="15">
+                    </div>
+                </div>
+            </div>
+            
+            <h3 style="color: #667eea; margin: 30px 0 20px;">Drama Details</h3>
+            
+            <div class="form-group">
+                <label>Theme Name / Drama Name <span class="required">*</span></label>
+                <input type="text" name="drama_name" required>
+            </div>
+            
+            <div class="form-group">
+                <label>Duration (in Minutes - Maximum 10 minutes) <span class="required">*</span></label>
+                <input type="number" name="duration" min="1" max="10" required>
+            </div>
+
+
+            
+            <button type="submit" class="submit-btn">Submit Registration</button>
+        </form>
+        
+        <div class="contact-info">
+            <h3>DON'T MISS THE SPOTLIGHT!</h3>
+            <p><strong>For Queries:</strong></p>
+            <p>📞 Call: 9561558899</p>
+            <p>💬 WhatsApp: 9561558899</p>
+            <p style="margin-top: 15px; font-size: 0.95em;">Warm Regards,<br>Team Radio MGIRI</p>
+        </div>
+    </div>
+    
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <div class="loading-text">Submitting your registration...</div>
+        </div>
+    </div>
+    
+    <!-- Success Message -->
+    <div class="success-message" id="successMessage">
+        <div class="success-icon">✓</div>
+        <h2>Registration Successful!</h2>
+        <p>Your registration has been submitted successfully. We have received your drama competition entry. See you on 12 January 2026 at MGIRI, Wardha!</p>
+        <button class="close-btn" onclick="closeSuccessMessage()">Close</button>
+    </div>
+    
+    <!-- Error Message -->
+    <div class="error-message" id="errorMessage">
+        <div class="error-icon">✕</div>
+        <h2>Submission Failed</h2>
+        <p id="errorText">Something went wrong. Please try again or contact us at 9561558899.</p>
+        <button class="close-btn" onclick="closeErrorMessage()">Close</button>
+    </div>
+    
+    <script>
+        // Google Apps Script web app URL
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwYLnRo-uX4MxNUUZh7Yl_IS5dJ9R3oXlApuVFwmlYuOGQ_2GvSE1U5CODmXfUhGs-z/exec';
+        
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show loading overlay
+            document.getElementById('loadingOverlay').classList.add('active');
+            
+            const formData = new FormData(this);
+            
+            // Create URLSearchParams for proper form encoding
+            const params = new URLSearchParams();
+            formData.forEach((value, key) => {
+                if (value) { // Only add non-empty values
+                    params.append(key, value);
+                }
+            });
+            
+            // Submit to Google Sheets
+            fetch(SCRIPT_URL, {
+                method: 'POST',
+                body: params
+            })
+            .then(() => {
+                // Hide loading
+                document.getElementById('loadingOverlay').classList.remove('active');
+                
+                // Show success message
+                document.getElementById('successMessage').classList.add('active');
+                
+                // Reset form
+                document.getElementById('registrationForm').reset();
+            })
+            .catch(error => {
+                // Hide loading
+                document.getElementById('loadingOverlay').classList.remove('active');
+                
+                // Show error message
+                document.getElementById('errorMessage').classList.add('active');
+                document.getElementById('errorText').textContent = 
+                    'Unable to submit registration. Please try again or contact us at 9561558899.';
+                
+                console.error('Error:', error);
+            });
+        });
+        
+        function closeSuccessMessage() {
+            document.getElementById('successMessage').classList.remove('active');
+        }
+        
+        function closeErrorMessage() {
+            document.getElementById('errorMessage').classList.remove('active');
+        }
+    </script>
+</body>
+</html>
